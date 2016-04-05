@@ -8,7 +8,12 @@ local default_cfg = function()
 end
 
 local is_posint = function(x)
-    return ( type(x) == "number" and math.floor(x) == x and x >= 0 )
+    local res = string.match(x, '^[1-9][0-9]*$')
+    if not res then 
+        return false
+    else
+        return true
+    end
 end
 
 local hyphen = string.byte("-")
